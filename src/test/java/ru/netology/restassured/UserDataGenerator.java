@@ -34,7 +34,7 @@ public class UserDataGenerator {
         }
 
         static RequestSpecification requestSpec = new RequestSpecBuilder()
-                .setBaseUri("http://localhost:")
+                .setBaseUri("http://localhost")
                 .setPort(9999)
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)

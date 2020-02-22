@@ -18,7 +18,7 @@ public class RestAssuredTest {
 
     @Test
     void happyPathTest() {
-        userDataModel = AuthTest.setUpUser("en-US", 0);
+        userDataModel = AuthTest.setUpUser("en-US", 1);
         loginField.setValue(userDataModel.getLogin());
         passwordField.setValue(userDataModel.getPassword());
         buttonNext.click();
