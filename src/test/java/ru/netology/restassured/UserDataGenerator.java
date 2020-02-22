@@ -10,6 +10,8 @@ import ru.netology.models.UserDataModel;
 
 import java.util.*;
 
+import static io.restassured.RestAssured.given;
+
 public class UserDataGenerator {
 
     public static class Registration {
@@ -42,7 +44,7 @@ public class UserDataGenerator {
         static UserDataModel setUpUser(String locale, int statusIndex) {
             UserDataModel userDataModel = Registration.generateUser(locale, statusIndex);
             // сам запрос
-            requestSpec.given() // "дано"
+            given() // "дано"
                     .spec(requestSpec) // указываем, какую спецификацию используем
                     .body(userDataModel) // передаём в теле объект, который будет преобразован в JSON
                     .when() // "когда"
