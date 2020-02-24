@@ -14,8 +14,8 @@ import static io.restassured.RestAssured.given;
 
 public class UserDataGenerator {
 
-    public static class Registration {
-        private Registration() {
+    public static class NewUserData {
+        private NewUserData() {
         }
 
         public static UserDataModel generateUser(String locale, int statusIndex) {
@@ -28,9 +28,9 @@ public class UserDataGenerator {
         }
     }
 
-    public static class AuthTest {
+    public static class UserRegistration {
 
-        private AuthTest() {
+        private UserRegistration() {
         }
 
         static RequestSpecification requestSpec = new RequestSpecBuilder()
@@ -42,7 +42,7 @@ public class UserDataGenerator {
                 .build();
 
         static UserDataModel setUpUser(String locale, int statusIndex) {
-            UserDataModel userDataModel = Registration.generateUser(locale, statusIndex);
+            UserDataModel userDataModel = NewUserData.generateUser(locale, statusIndex);
             // сам запрос
             given() // "дано"
                     .spec(requestSpec) // указываем, какую спецификацию используем
