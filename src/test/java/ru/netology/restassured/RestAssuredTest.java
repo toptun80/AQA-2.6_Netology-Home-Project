@@ -1,6 +1,7 @@
 package ru.netology.restassured;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.netology.models.UserDataModel;
 
@@ -18,6 +19,7 @@ public class RestAssuredTest {
     }
 
     @Test
+    @DisplayName("Статус 'active', валидные логин и пароль")
     void shouldLogInPersonalAccount() {
         UserDataModel userDataModel = setUpUser("en-US", 1);
         loginField.setValue(userDataModel.getLogin());
@@ -27,6 +29,7 @@ public class RestAssuredTest {
     }
 
     @Test
+    @DisplayName("Статус 'blocked', валидные логин и пароль")
     void shouldNotifyThatAccountIsBlocked() {
         UserDataModel userDataModel = setUpUser("en-US", 0);
         loginField.setValue(userDataModel.getLogin());
@@ -36,6 +39,7 @@ public class RestAssuredTest {
     }
 
     @Test
+    @DisplayName("Пользователь не зарегистрирован")
     void shouldNotifyThatLoginIsIncorrect() {
         loginField.setValue("fakeUser");
         passwordField.setValue("fakeUser");
@@ -44,6 +48,7 @@ public class RestAssuredTest {
     }
 
     @Test
+    @DisplayName("Статус 'active', валидный логин, невалидный пароль")
     void shouldNotifyThatPasswordIsIncorrect() {
         UserDataModel userDataModel = setUpUser("en-US", 1);
         loginField.setValue(userDataModel.getLogin());
